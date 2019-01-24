@@ -5,7 +5,8 @@ import (
 	"net"
 	"sync"
 	"time"
-
+	"fmt"
+	
 	"github.com/bettercap/bettercap/log"
 	"github.com/bettercap/bettercap/network"
 	"github.com/bettercap/bettercap/packets"
@@ -140,9 +141,15 @@ func (p *ArpSpoofer) Start() error {
 		gwIP := p.Session.Gateway.IP
 		myMAC := p.Session.Interface.HW
 		for p.Running() {
+			fmt.Printf("aaaaaa")
+			fmt.Printf(gwIP)
+			fmt.Printf(myMAC)
 			p.sendArp(gwIP, myMAC, true, false)
 			for _, address := range neighbours {
 				if !p.Session.Skip(address) {
+					fmt.Printf("bbbbbb")
+					fmt.Printf(address)
+					fmt.Printf(myMAC)
 					p.sendArp(address, myMAC, true, false)
 				}
 			}
