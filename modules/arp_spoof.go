@@ -141,15 +141,11 @@ func (p *ArpSpoofer) Start() error {
 		gwIP := p.Session.Gateway.IP
 		myMAC := p.Session.Interface.HW
 		for p.Running() {
-			fmt.Printf("aaaaaa")
-			fmt.Printf(gwIP)
-			fmt.Printf(myMAC)
+			log.Info("!!gwIP is %s,myMAC is %s", gwIP,myMAC)
 			p.sendArp(gwIP, myMAC, true, false)
 			for _, address := range neighbours {
 				if !p.Session.Skip(address) {
-					fmt.Printf("bbbbbb")
-					fmt.Printf(address)
-					fmt.Printf(myMAC)
+					log.Info("!!address is %s,myMAC is %s", address,myMAC)
 					p.sendArp(address, myMAC, true, false)
 				}
 			}
