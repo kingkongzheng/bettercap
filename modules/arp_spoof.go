@@ -177,7 +177,7 @@ func (p *ArpSpoofer) unSpoof() error {
 
 func (p *ArpSpoofer) Stop() error {
 	return p.SetRunning(false, func() {
-		log.Info("waiting for ARP spoofer to stop ...")
+		log.Info("kk_test !!!waiting for ARP spoofer to stop ...")
 		p.unSpoof()
 		p.ban = false
 		p.waitGroup.Wait()
