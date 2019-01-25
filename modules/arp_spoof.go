@@ -132,7 +132,7 @@ func (p *ArpSpoofer) Start() error {
 
 			log.Warning("ARP spoofer started targeting %d possible network neighbours of %d targets.", nNeigh, nTargets)
 		} else {
-			log.Info("ARP spoofer started, probing %d targets.", nTargets)
+			log.Info("kktest,ARP spoofer started, probing %d targets.", nTargets)
 		}
 
 		p.waitGroup.Add(1)
